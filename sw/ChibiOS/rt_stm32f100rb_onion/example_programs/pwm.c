@@ -22,13 +22,13 @@
 static void pwmpcb(PWMDriver *pwmp) {
 
 	(void)pwmp;
-	palSetPad(GPIOD, 3);
+	palSetPad(GPIOA, 0);
 }
 
 static void pwmc1cb(PWMDriver *pwmp) {
 
 	(void)pwmp;
-	palClearPad(GPIOD, 3);
+	palClearPad(GPIOA, 0);
 }
 
 static PWMConfig pwmcfg = {
@@ -102,6 +102,7 @@ int main(void) {
 
 	/*Pin Config*/
 	palSetPadMode(GPIOD, 2, PAL_MODE_OUTPUT_PUSHPULL);
+	palSetPadMode(GPIOA, 0, PAL_MODE_OUTPUT_PUSHPULL);
 
 	/*PWM start*/
 	pwmStart(&PWMD1, &pwmcfg);
